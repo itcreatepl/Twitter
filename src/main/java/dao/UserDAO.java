@@ -14,21 +14,9 @@ public interface UserDAO {
 
     User getUserByEmail(String email);
 
-    User getUserById(Long userId);
-
-    boolean isUserExists(String login);
-
     Set<User> getFollows(String login);
 
     Set<User> getFollowers(String login);
 
-    void follow(String currentUserLogin, String userLoginToFollow);
-
-    void stopFollowing(String currentUserLogin, String userLoginToUnfollow);
-
     Set<User> getNotFollowedUsers(String login);
-
-    boolean isUserValid(String login, String password);
-
-
 }

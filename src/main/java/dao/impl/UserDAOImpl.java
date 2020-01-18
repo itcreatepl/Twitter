@@ -37,21 +37,6 @@ public class UserDAOImpl extends AbstractDao implements UserDAO {
     }
 
     @Override
-    public User getUserById(Long userId) {
-        return null;
-    }
-
-    @Override
-    public boolean isUserExists(String login) {
-        try {
-            User userByLogin = getUserByLogin(login);
-            return true;
-        } catch (NoResultException e) {
-            return false;
-        }
-    }
-
-    @Override
     public Set<User> getFollows(String login) {
         return getUserByLogin(login).getFollows();
     }
@@ -59,23 +44,6 @@ public class UserDAOImpl extends AbstractDao implements UserDAO {
     @Override
     public Set<User> getFollowers(String login) {
         return getUserByLogin(login).getFollowers();
-    }
-
-    @Override
-    public void follow(String currentUserLogin, String userLoginToFollow) {
-        User currentUser = getUserByLogin(currentUserLogin);
-        User userToFollow = getUserByLogin(userLoginToFollow);
-        currentUser.getFollows().add(userToFollow);
-        saveUser(currentUser);
-
-    }
-
-    @Override
-    public void stopFollowing(String currentUserLogin, String userLoginToUnfollow) {
-        User currentUser = getUserByLogin(currentUserLogin);
-        User userToUnFollow = getUserByLogin(userLoginToUnfollow);
-        currentUser.getFollows().remove(userToUnFollow);
-        saveUser(currentUser);
     }
 
     @Override
@@ -88,14 +56,5 @@ public class UserDAOImpl extends AbstractDao implements UserDAO {
         users.removeAll(followedUsers);
         return new HashSet<>(users);
 
-    }
-
-    @Override
-    public boolean isUserValid(String login, String password) {
-        try {
-            return getUserByLogin(login).getPassword().equals(password);
-        } catch (NoResultException e) {
-            return false;
-        }
     }
 }
