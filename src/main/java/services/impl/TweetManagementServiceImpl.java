@@ -30,6 +30,7 @@ public class TweetManagementServiceImpl implements TweetManagementService {
 
     @Override
     public void updateTweet(Long tweetId, String message) {
+        tweetDAO.updateTweet(tweetId,message);
 
     }
 
