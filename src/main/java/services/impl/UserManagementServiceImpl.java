@@ -38,6 +38,17 @@ public class UserManagementServiceImpl implements UserManagementService {
     }
 
     @Override
+    public boolean isEmailExist(String email) {
+        try {
+            User user = userDAO.getUserByEmail(email);
+            return true;
+        } catch (NoResultException e) {
+            return false;
+        }
+    }
+
+
+    @Override
     public Set<User> getNotFollowedUsers(String login) {
             return userDAO.getNotFollowedUsers(login);
     }
@@ -66,5 +77,10 @@ public class UserManagementServiceImpl implements UserManagementService {
         } catch (NoResultException e) {
             return false;
         }
+    }
+    @Override
+    public boolean validationUserLoginAndPassword(String login, String password) {
+        User user = userDAO.getUserByLogin(login);
+        return user.getPassword().equals(password);
     }
 }

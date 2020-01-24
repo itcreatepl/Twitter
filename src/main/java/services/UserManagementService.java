@@ -20,4 +20,7 @@ public interface UserManagementService {
 
     boolean isUserExists(String login);
 
+    boolean isEmailExist(String email);
+
+    boolean validationUserLoginAndPassword(String login, String password);
 }
