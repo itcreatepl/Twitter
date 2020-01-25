@@ -21,5 +21,6 @@ public class Namespace {
 
     public static final String LOGGED_USER = "loggedUser";
 
-
+    public static final String REMEMBER = "remember";
+    public static final String CHECKBOX_CHECKED = "on";
 }

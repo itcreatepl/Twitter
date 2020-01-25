@@ -7,7 +7,7 @@
 <h3>Hello <%=helloUser%></h3>
 <p><a href="register">Register user</a></p>
 <p><a href="login">Login</a></p>
-<p><a href="getAllUser">Show users</a></p>
+<p><a href="users">Show users</a></p>
 <p><a href="exit">Bye</a></p>
 </body>
 </html>

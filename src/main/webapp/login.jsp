@@ -49,12 +49,16 @@
                 </div>
             </div>
 
-            <div class="form-group"></div>
-
+            <div class="form-group">  <div class="input-group">
+                <input id="remember" name="remember" class="form-check-input" type="checkbox">
+                <label>Remember ?</label>
+            </div>
+            </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block blue">Log in</button>
                 <p class="text-center"><a href="login" class="btn">Back to main page</a></p>
             </div>
+            <p class="text-center"><a href="register">Sign up</a> </p>
         </form>
     </div>
 </main>
