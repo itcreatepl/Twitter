@@ -8,6 +8,7 @@ import model.Tweet;
 import model.User;
 import services.TweetManagementService;
 
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -53,4 +54,14 @@ public class TweetManagementServiceImpl implements TweetManagementService {
         result.addAll(tweetDAO.getAllTweetByUser(userLogin));
         return result;
     }
+    public Set<Tweet> getFollowedTweetsStream(String userLogin){
+        Set<Tweet> followedTweets = new HashSet<>();
+        Set<User> follows = userDAO.getFollows(userLogin);
+        followedTweets.addAll(tweetDAO.getAllTweetByUser(userLogin));
+        follows.stream().forEach(p -> followedTweets.addAll(tweetDAO.getAllTweetByUser(p.getLogin())));
+        return followedTweets;
+    }
+
+
+
 }

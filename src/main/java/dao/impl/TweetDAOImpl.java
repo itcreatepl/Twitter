@@ -34,7 +34,7 @@ public class TweetDAOImpl extends AbstractDao implements TweetDAO {
     public List<Tweet> getAllTweetByUser(String login) {
 
         TypedQuery<Tweet> query = entityManager
-                .createQuery("select t from Tweet t where t.author.login = :login", Tweet.class);
+                .createQuery("select t from Tweet t where t.author.login = :login order by t.publishedAt DESC", Tweet.class);
         return query.setParameter("login", login).getResultList();
 
     }

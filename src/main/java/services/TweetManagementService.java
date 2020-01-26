@@ -14,4 +14,6 @@ public interface TweetManagementService {
     void deleteTweet(Long tweetId);
 
     Set<Tweet> getFollowedTweets(String userLogin);
+
+    Set<Tweet> getFollowedTweetsStream(String userLogin);
 }
