@@ -1,6 +1,8 @@
 package util;
 
-public class Namespace {
+import javax.servlet.http.HttpServletRequest;
+
+public class ServletUtils {
     public static final String USER_LOGIN = "login";
     public static final String USER_NAME = "name";
     public static final String USER_SURNAME = "lastName";
@@ -23,4 +25,14 @@ public class Namespace {
 
     public static final String REMEMBER = "remember";
     public static final String CHECKBOX_CHECKED = "on";
+
+    public static final String FOLLOWED_USERS = "followedUsers";
+    public static final String NOT_FOLLOWED_USERS = "notFollowedUsers";
+
+
+    public static String getUserLoginFromSession(HttpServletRequest req) {
+        return (String) req.getSession().getAttribute(LOGGED_USER);
+    }
+
+
 }

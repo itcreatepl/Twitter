@@ -1,5 +1,5 @@
-<%@ page import="util.Namespace" %>
-<%@ page import="static util.Namespace.*" %>
+<%@ page import="util.ServletUtils" %>
+<%@ page import="static util.ServletUtils.*" %>
 <html>
 <body>
 <% String helloUser = ((request.getAttribute(LOGGED_USER) == null) ? "unknown user" :

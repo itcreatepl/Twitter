@@ -83,4 +83,9 @@ public class UserManagementServiceImpl implements UserManagementService {
         User user = userDAO.getUserByLogin(login);
         return user.getPassword().equals(password);
     }
+
+    @Override
+    public Set<User> getFollowedUsers(String login) {
+        return  userDAO.getFollows(login);
+    }
 }

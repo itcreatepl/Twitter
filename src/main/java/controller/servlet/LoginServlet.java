@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static util.Namespace.*;
+import static util.ServletUtils.*;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"", "/login"})
 public class LoginServlet extends HttpServlet {
@@ -77,6 +77,6 @@ public class LoginServlet extends HttpServlet {
             resp.addCookie(loginCookie);
             resp.addCookie(passwordCookie);
         }
-        req.getRequestDispatcher("users.jsp").forward(req, resp);
+        req.getRequestDispatcher("users").forward(req, resp);
     }
 }
